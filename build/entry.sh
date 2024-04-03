@@ -13,6 +13,10 @@ is_enabled() {
     [[ ${1,,} =~ ^(true|t|yes|y|1|on|enable|enabled)$ ]]
 }
 
+AUTH_SECRET=${AUTH_SECRET:-""}
+CONFIG_FILE=${CONFIG_FILE:-""}
+ALLOWED_SUBNETS=${ALLOWED_SUBNETS:-""}
+
 # Either a specific file name or a pattern.
 if [[ $CONFIG_FILE ]]; then
     config_file=$(find /config -name "$CONFIG_FILE" 2> /dev/null | sort | shuf -n 1)
